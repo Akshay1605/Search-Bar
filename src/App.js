@@ -1,28 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-import './App.css'; // Import the CSS file for styling
+import './App.css'; 
 
 const App = () => {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
-  // Fetch country data when the component mounts
-  // useEffect(() => {
-  //   axios.get('https://dpaste.com/79QXDY8TD/raw') // Replace with the provided JSON URL
-  //     .then(response => {
-  //       const data = response.data;
-  //       if (Array.isArray(data)) {
-  //         console.log('Fetched countries:', data); // Debug log
-  //         setCountries(data);
-  //       } else {
-  //         console.error('Fetched data is not an array:', data);
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.error('Error fetching data:', error);
-  //     });
-  // }, []);
+
 
   useEffect(() => {
     
@@ -197,16 +182,16 @@ const App = () => {
     const value = event.target.value;
     setSearchTerm(value);
 
-    // Filter countries based on the input
+    
     if (value.trim() !== '') {
       const filteredSuggestions = countries.filter(country =>
         country.name.toLowerCase().includes(value.toLowerCase()) ||
         country.capital.toLowerCase().includes(value.toLowerCase())
       );
-      console.log('Filtered Suggestions:', filteredSuggestions); // Debug log
+      console.log('Filtered Suggestions:', filteredSuggestions); 
       setSuggestions(filteredSuggestions);
     } else {
-      setSuggestions([]); // Clear suggestions if input is empty
+      setSuggestions([]);
     }
   };
 
